@@ -14,13 +14,12 @@ import tensorflow_addons as tfa
 from skimage.restoration import unwrap_phase
 from PIL import Image
 
-
 from fringe.utils.io import import_image, export_image
 from fringe.utils.modifiers import ImageToArray, ConvertToTensor
 from fringe.process.gpu import AngularSpectrumSolver as AsSolver
 
-folder_path = '/Users/chuckles/Desktop/Holographic Reconstruction/DHM-fieldimage/Aug12-inlineTest/'
-file_name = '114202Aug12sprinlinaold'
+folder_path = '/Users/chuckles/Desktop/Holographic Reconstruction/test image/'
+file_name = 'target512_2'
 hologram_path = folder_path+file_name+'.jpg'
 
 p1 = ImageToArray(bit_depth=16, channel='gray', crop_window=None, dtype='float32')
@@ -60,9 +59,9 @@ axz = plt.axes([0.1, 0.25, 0.0225, 0.63])
 z_slider = Slider(
     ax=axz,
     label="Z-height",
-    valmin=100,
-    valmax=400,
-    valstep= 5,
+    valmin=8400, # for thin layer 100 to 400
+    valmax=8600, # 
+    valstep= 10,
     valinit=init_z,
     orientation="vertical"
 )
